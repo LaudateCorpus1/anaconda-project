@@ -120,7 +120,7 @@ jobs:
           [ $RUNNER_OS == macOS ] && export CONDA_PKGS_DIRS=~/.pkgs
           ${CONDA_EXE:-conda} create -y -p ./conda conda=${{ matrix.cver }}
     - name: Download the build artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: package-${{ github.sha }}
         path: ./conda/conda-bld
@@ -153,7 +153,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Download the build artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: package-${{ github.sha }}
         path: conda-bld
